@@ -1,5 +1,5 @@
 import { redirect } from "@sveltejs/kit";
-import { handleCallback } from "$lib/auth";
+import { handleCallback } from "$lib/auth/login";
 
 /** @type {import('./$types').RequestHandler} */
 export async function GET(event) {

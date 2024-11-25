@@ -13,7 +13,7 @@
 	const navLinks = [
 		{ href: '/', label: 'Home' },
 		{ href: '/diary', label: 'Diary' },
-		{ href: '/game', label: 'Game' }
+		{ href: '/community', label: 'Community' }
 	];
 </script>
 
@@ -25,7 +25,7 @@
 			<a {href}>{label}</a>
 		{/each}
 		{#if data.isLogin}
-			<a href="/auth/login" class="login-btn">Log out</a>
+			<a href="/user/profile" class="login-btn">User</a>
 		{:else}
 			<a href="/auth/login" class="login-btn">Login</a>
 		{/if}
@@ -35,7 +35,7 @@
 			<a {href} on:click={() => (isMenuOpen = false)}>{label}</a>
 		{/each}
 		{#if data.isLogin}
-			<a href="/auth/login" class="login-btn" on:click={() => (isMenuOpen = false)}>Log out</a>
+			<a href="/user/profile" class="login-btn" on:click={() => (isMenuOpen = false)}>User</a>
 		{:else}
 			<a href="/auth/login" class="login-btn" on:click={() => (isMenuOpen = false)}>Login</a>
 		{/if}

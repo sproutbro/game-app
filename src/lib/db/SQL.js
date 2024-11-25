@@ -14,4 +14,12 @@ const insertUser = `
         ($1, $2);
 `
 
-export default { selectUser, insertUser }
+const updateUser = `
+    UPDATE 
+        users
+    SET 
+        nickname = $1
+    WHERE id= $2;
+`
+
+export default { selectUser, insertUser, updateUser }

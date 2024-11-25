@@ -1,5 +1,5 @@
 import { redirect } from "@sveltejs/kit";
-import { createAuthorizationUrl } from "$lib/auth";
+import { createAuthorizationUrl } from "$lib/auth/login";
 
 /** @type {import('./$types').RequestHandler} */
 export function GET(event) {
