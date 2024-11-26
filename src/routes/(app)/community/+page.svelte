@@ -1,20 +1,11 @@
 <script>
-	let posts = [
-		{
-			id: 1,
-			title: '첫 번째 게시물 제목이 너무 길다면 이렇게 보일 것입니다',
-			author: '관리자',
-			date: '2024-11-20'
-		},
-		{ id: 2, title: '두 번째 게시물', author: '사용자1', date: '2024-11-19' },
-		{ id: 3, title: '세 번째 게시물', author: '사용자2', date: '2024-11-18' },
-		{ id: 4, title: '네 번째 게시물', author: '사용자3', date: '2024-11-17' }
-	];
+	/** @type {import('./$types').PageData} */
+	export let data;
 
 	let searchQuery = '';
 
 	function searchPosts() {
-		return posts.filter((post) => post.title.toLowerCase().includes(searchQuery.toLowerCase()));
+		console.log(1);
 	}
 
 	function handleSearch() {
@@ -42,17 +33,17 @@
 			</tr>
 		</thead>
 		<tbody>
-			{#each searchPosts() as { id, title, author, date }, i}
+			{#each data.posts as { id, title, nickname, created_at }}
 				<tr>
-					<td>{i + 1}</td>
+					<td>{id}</td>
 					<td>
 						<a href={`/board/${id}`} class="title">{title}</a>
 						<div class="mobile-details">
-							<span>{author}</span> | <span>{date}</span>
+							<span>{nickname}</span> | <span>{created_at}</span>
 						</div>
 					</td>
-					<td class="desktop-only">{author}</td>
-					<td class="desktop-only">{date}</td>
+					<td class="desktop-only">{nickname}</td>
+					<td class="desktop-only">{created_at}</td>
 				</tr>
 			{/each}
 		</tbody>
