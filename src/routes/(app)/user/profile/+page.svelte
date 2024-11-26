@@ -15,7 +15,7 @@
 	}
 
 	async function handleConfirm() {
-		const json = await tryPOST('/user', formData);
+		const json = await tryPOST('/user/profile', formData);
 		message = json.message;
 		isOpen = false;
 	}
