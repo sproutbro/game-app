@@ -15,6 +15,12 @@ export const insertCommunity = async (event) => {
     return result.rows[0]
 }
 
+export const selectCommunityDetail = async (event) => {
+    const communityID = event.params.slug
+    const result = await query(selectCommunityDetailQuery, [communityID])
+    return result.rows[0]
+}
+
 const selectCommunityQuery = `
     SELECT
         c.id AS id,
@@ -31,6 +37,19 @@ const selectCommunityQuery = `
         10
     OFFSET
         $1;
+`
+
+const selectCommunityDetailQuery = `
+    SELECT
+        c.id AS id,
+        c.title AS title,
+        c.description AS description,
+        TO_CHAR(c.created_at, 'YYYY-MM-DD') AS created_at,
+        u.nickname AS nickname
+    FROM
+        community c
+        JOIN users u ON c.users_id = u.id
+    WHERE c.id = $1;
 `
 
 const insertCommunityQuery = `

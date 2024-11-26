@@ -39,7 +39,7 @@
 				<tr>
 					<td>{id}</td>
 					<td>
-						<a href={`/board/${id}`} class="title">{title}</a>
+						<a href={`/community/${id}`} class="title">{title}</a>
 						<div class="mobile-details">
 							<span>{nickname}</span> | <span>{created_at}</span>
 						</div>
