@@ -1,8 +1,8 @@
 <script>
+	import { goto } from '$app/navigation';
 	import { tryPOST } from '$lib/utils/fetch';
 
 	let formData = {};
-	let message = '';
 	let isOpen = false;
 
 	const handleSubmit = (event) => {
@@ -12,9 +12,8 @@
 	};
 
 	async function handleConfirm() {
-		const json = await tryPOST('/community/write', formData);
-		message = json.message;
-		isOpen = false;
+		const { id } = await tryPOST('/community/write', formData);
+		goto(`/community/${id}`);
 	}
 
 	function handleCancel() {
@@ -33,8 +32,6 @@
 
 				<label for="content">Description</label>
 				<textarea id="content" name="description" required></textarea>
-
-				<div>{message}</div>
 
 				<button type="submit">Completed</button>
 			</form>

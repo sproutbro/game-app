@@ -12,7 +12,7 @@ export const insertCommunity = async (event) => {
     const formData = await event.request.json();
     const values = Object.values(formData);
     const result = await query(insertCommunityQuery, [userID, ...values]);
-    return result.rowCount
+    return result.rows[0]
 }
 
 const selectCommunityQuery = `
@@ -37,5 +37,6 @@ const insertCommunityQuery = `
     INSERT INTO
         community (users_id, title, description)
     VALUES
-        ($1, $2, $3);
+        ($1, $2, $3)
+    RETURNING id;
 `
