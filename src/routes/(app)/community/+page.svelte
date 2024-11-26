@@ -1,4 +1,6 @@
 <script>
+	import { goto } from '$app/navigation';
+
 	/** @type {import('./$types').PageData} */
 	export let data;
 
@@ -53,7 +55,7 @@
 		<button class="page-btn">＜</button>
 		<span>1 / 10</span>
 		<button class="page-btn">＞</button>
-		<button class="write-btn" on:click={() => alert('글쓰기 페이지로 이동')}>Write</button>
+		<button class="write-btn" on:click={() => goto('/community/write')}>Write</button>
 	</div>
 </div>
 

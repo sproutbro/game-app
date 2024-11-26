@@ -16,7 +16,7 @@ export const updateUser = async (event) => {
     return result.rowCount
 }
 
-const decryptUser = (event) => {
+export const decryptUser = (event) => {
     const encrypteduserID = event.cookies.get("user")
     if (encrypteduserID) return decrypt(encrypteduserID)
     redirect(302, "/auth/login")
