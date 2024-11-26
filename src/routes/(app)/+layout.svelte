@@ -12,7 +12,7 @@
 
 	const navLinks = [
 		{ href: '/', label: 'Home' },
-		{ href: '/diary', label: 'Diary' },
+		{ href: '/developer/profile', label: 'Developer' },
 		{ href: '/community', label: 'Community' }
 	];
 </script>

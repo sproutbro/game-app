@@ -3,10 +3,7 @@
 	export let data;
 
 	let post = {
-		comments: [
-			{ id: 1, author: '댓글 작성자1', text: '좋은 글입니다!' },
-			{ id: 2, author: '댓글 작성자2', text: '유익한 정보 감사합니다.' }
-		]
+		comments: []
 	};
 
 	let newComment = '';
